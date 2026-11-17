@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>傳播與採訪筆記知識庫 | Media Notes Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- 網站頁首 -->
+  <header>
+    <span class="site-eyebrow">Editorial &amp; Media Studies Knowledge Base</span>
+    <h1>傳播與採訪筆記知識庫</h1>
+    <p class="site-description">系統化整理新聞採訪實務筆記、經典傳播學理論與當代媒體生態觀察的個人靜態知識庫。</p>
+  </header>
+
+  <main>
+    <!-- 分類篩選按鈕 -->
+    <section class="filter-section" aria-label="筆記分類篩選">
+      <div class="filter-bar" role="toolbar">
+        <button type="button" class="filter-btn active" data-filter="全部" aria-pressed="true">全部</button>
+        <button type="button" class="filter-btn" data-filter="傳播理論" aria-pressed="false">傳播理論</button>
+        <button type="button" class="filter-btn" data-filter="採訪實務" aria-pressed="false">採訪實務</button>
+        <button type="button" class="filter-btn" data-filter="媒體觀察" aria-pressed="false">媒體觀察</button>
+      </div>
+    </section>
+
+    <!-- 文章列表卡片區（新文章插入於最上方） -->
+    <section id="article-list" aria-label="筆記文章列表">
+      <!-- 2026-11-17 新增：沉默螺旋理論與社群輿論採訪 -->
+      <article class="note-card" data-category="採訪實務">
+        <div class="note-meta">
+          <span class="category-badge">採訪實務</span>
+          <time class="note-date" datetime="2026-11-17">2026-11-17</time>
+        </div>
+        <h2 class="note-title">
+          <a href="pages/2026-11-spiral-of-silence.html">沉默螺旋理論與社群輿論採訪：從準感官統計到網路聲量偏誤</a>
+        </h2>
+        <p class="note-excerpt">從德國學者 Noelle-Neumann（1974）提出的「沉默螺旋」與「準感官統計」出發，探討社群媒體與網路新聞採訪中，記者若僅依賴留言區聲量或高讚數貼文判斷民意，如何陷入同溫層與演算法放大的偏誤，進而忽略沉默多數與弱勢群體觀點。</p>
+        <a href="pages/2026-11-spiral-of-silence.html" class="read-more">閱讀全文 &rarr;</a>
+      </article>
+
+      <!-- 2026-11-17 新增：框架理論與運動媒體複合體 -->
+      <article class="note-card" data-category="傳播理論">
+        <div class="note-meta">
+          <span class="category-badge">傳播理論</span>
+          <time class="note-date" datetime="2026-11-17">2026-11-17</time>
+        </div>
+        <h2 class="note-title">
+          <a href="pages/2026-11-framing-sports-media-complex.html">框架理論與運動媒體複合體：從新聞選擇到體育報導的結構性框架</a>
+        </h2>
+        <p class="note-excerpt">從 Goffman（1974）與 Entman（1993）的「選擇」與「凸顯」機制出發，剖析記者採用的消息來源與詞彙如何決定報導框架，以及在「運動媒體複合體」商業邏輯下，體育新聞為何偏重國族榮耀與個人英雄主義而忽略結構性議題。</p>
+        <a href="pages/2026-11-framing-sports-media-complex.html" class="read-more">閱讀全文 &rarr;</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p class="copyright">&copy; 2026 傳播與採訪筆記知識庫 Media Notes Wiki. Built with Editorial Minimalist Style.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

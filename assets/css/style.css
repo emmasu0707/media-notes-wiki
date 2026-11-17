@@ -1,0 +1,472 @@
+/* ==========================================================================
+   傳播與採訪筆記知識庫 (Media Notes Wiki) - 全站共用樣式表
+   風格：現代報刊知識庫 (Editorial / Knowledge Base)
+   ========================================================================== */
+
+:root {
+  --bg-color: #FAFAFA;
+  --surface-color: #FFFFFF;
+  --surface-muted: #F4F4F5;
+  --text-primary: #27272A;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --accent-color: #1E3A8A;
+  --accent-hover: #172554;
+  --accent-subtle: #EFF6FF;
+  --border-color: #E4E4E7;
+  --border-strong: #27272A;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(30, 58, 138, 0.06);
+  --max-width: 760px;
+  --font-sans: 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #18181B;
+    --surface-color: #27272A;
+    --surface-muted: #1F1F23;
+    --text-primary: #F4F4F5;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --accent-color: #60A5FA;
+    --accent-hover: #93C5FD;
+    --accent-subtle: rgba(30, 58, 138, 0.35);
+    --border-color: #3F3F46;
+    --border-strong: #E4E4E7;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* 基礎重設與排版 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0 1.25rem;
+}
+
+/* 版面容器：最大閱讀寬度 760px */
+.container,
+body > header,
+body > .summary-box,
+body > main,
+body > footer {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 連結樣式 */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   頁首 (Header) - 現代報刊頭版與單頁標頭
+   ========================================================================== */
+header {
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.site-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.site-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* 單篇筆記頁首導覽與中繼資料 */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1.25rem;
+}
+
+.back-link:hover {
+  text-decoration: none;
+  transform: translateX(-2px);
+}
+
+.article-meta,
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.category-tag,
+.category-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  background-color: var(--accent-subtle);
+  border: 1px solid rgba(30, 58, 138, 0.2);
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+/* ==========================================================================
+   首頁分類篩選列 (Filter Bar)
+   ========================================================================== */
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-btn {
+  appearance: none;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   首頁文章列表與卡片 (#article-list & .note-card)
+   ========================================================================== */
+#article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.note-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.note-card[hidden] {
+  display: none !important;
+}
+
+.note-card h2,
+.note-card .note-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0.4rem 0 0.6rem;
+  border: none;
+  padding: 0;
+}
+
+.note-card h2 a,
+.note-card .note-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.note-card h2 a:hover,
+.note-card .note-title a:hover {
+  color: var(--accent-color);
+}
+
+.note-excerpt {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.read-more {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   單篇筆記核心區塊：摘要框 (.summary-box)
+   ========================================================================== */
+.summary-box {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 1.35rem 1.6rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-box .summary-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.4rem;
+}
+
+.summary-box p {
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   單篇筆記正文區 (main)
+   ========================================================================== */
+main {
+  padding-bottom: 2rem;
+}
+
+main h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+main h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--text-primary);
+  margin: 1.75rem 0 0.75rem;
+}
+
+main p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+main ul,
+main ol {
+  margin: 0 0 1.35rem 1.5rem;
+}
+
+main li {
+  margin-bottom: 0.45rem;
+}
+
+main strong {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* 經典文獻或受訪者引言 (blockquote) */
+blockquote {
+  margin: 1.75rem 0;
+  padding: 1.1rem 1.5rem;
+  background-color: var(--surface-muted);
+  border-left: 4px solid var(--accent-color);
+  font-style: normal;
+  color: var(--text-primary);
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+/* 核心名詞解釋框 (.concept-card) */
+.concept-card {
+  background-color: var(--accent-subtle);
+  border: 1px solid rgba(30, 58, 138, 0.25);
+  border-radius: 8px;
+  padding: 1.35rem 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.concept-card h4,
+.concept-card .concept-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.concept-card p {
+  font-size: 0.98rem;
+  margin-bottom: 0;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   頁尾與上下篇導覽 (Footer)
+   ========================================================================== */
+footer {
+  margin-top: 3rem;
+  padding: 2rem 0 3.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.post-nav a {
+  display: block;
+  padding: 1rem 1.25rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-nav a:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.post-nav .nav-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.post-nav .nav-title {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.post-nav .nav-next {
+  text-align: right;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  header {
+    padding-top: 2.25rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .note-card {
+    padding: 1.25rem;
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav .nav-next {
+    text-align: left;
+  }
+}
